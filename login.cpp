@@ -9,9 +9,9 @@ using namespace std;
 bool namereg;
 void closegraph(){return;}
 
-HANDLE hInput;  /*  鑾峰彇鏍囧噯杈撳叆璁惧鍙ユ焺 */
-INPUT_RECORD inRec;/*  杩斿洖鏁版嵁璁板綍 */
-DWORD numRead; /*  杩斿洖宸茶鍙栫殑璁板綍鏁?*/
+HANDLE hInput;
+INPUT_RECORD inRec;
+DWORD numRead; 
 HANDLE handle_in;  
 HANDLE handle_out;  
 CONSOLE_SCREEN_BUFFER_INFO csbi;
@@ -36,7 +36,7 @@ const int white=15;
 
 ////////////////////////
 
-struct pos{  //瀹氫綅鐢?
+struct pos{
     int x;
     int y;
 };
@@ -63,28 +63,28 @@ void HideTheCursor()
 }
 
 void VSSetup(){
-    handle_in = GetStdHandle(STD_INPUT_HANDLE);      //鑾峰緱鏍囧噯杈撳叆璁惧鍙ユ焺  
-    handle_out = GetStdHandle(STD_OUTPUT_HANDLE);    //鑾峰緱鏍囧噯杈撳嚭璁惧鍙ユ焺  
-    INPUT_RECORD mouserec;      //瀹氫箟杈撳叆浜嬩欢缁撴瀯浣? 
-    DWORD res;      //鐢ㄤ簬瀛樺偍璇诲彇璁板綍  
-    COORD pos;      //鐢ㄤ簬瀛樺偍榧犳爣褰撳墠浣嶇疆  
-    COORD size = {20, 25};  //绐楀彛缂撳啿鍖哄ぇ灏? 
-    GetConsoleScreenBufferInfo(handle_out, &csbi);  //鑾峰緱绐楀彛缂撳啿鍖轰俊鎭? 
-    SetConsoleScreenBufferSize(handle_out, size);   //璁剧疆绐楀彛缂撳啿鍖哄ぇ灏? 
+    handle_in = GetStdHandle(STD_INPUT_HANDLE); 
+    handle_out = GetStdHandle(STD_OUTPUT_HANDLE); 
+    INPUT_RECORD mouserec;
+    DWORD res;
+    COORD pos; 
+    COORD size = {20, 25}; 
+    GetConsoleScreenBufferInfo(handle_out, &csbi); 
+    SetConsoleScreenBufferSize(handle_out, size); 
     HideTheCursor();
 }
 
 bool Mousepress(int x1,int x2,int y1,int y2){
-    handle_in = GetStdHandle(STD_INPUT_HANDLE);      //鑾峰緱鏍囧噯杈撳叆璁惧鍙ユ焺  
-    handle_out = GetStdHandle(STD_OUTPUT_HANDLE);    //鑾峰緱鏍囧噯杈撳嚭璁惧鍙ユ焺  
-    INPUT_RECORD mouserec;      //瀹氫箟杈撳叆浜嬩欢缁撴瀯浣? 
-    DWORD res;      //鐢ㄤ簬瀛樺偍璇诲彇璁板綍  
-    COORD pos;      //鐢ㄤ簬瀛樺偍榧犳爣褰撳墠浣嶇疆  
-    COORD size = {20, 25};  //绐楀彛缂撳啿鍖哄ぇ灏? 
-    GetConsoleScreenBufferInfo(handle_out, &csbi);  //鑾峰緱绐楀彛缂撳啿鍖轰俊鎭? 
-    SetConsoleScreenBufferSize(handle_out, size);   //璁剧疆绐楀彛缂撳啿鍖哄ぇ灏? 
-    ReadConsoleInput(handle_in, &mouserec, 1, &res);      //璇诲彇杈撳叆浜嬩欢  
-    pos = mouserec.Event.MouseEvent.dwMousePosition;    //鑾峰緱褰撳墠榧犳爣浣嶇疆  
+    handle_in = GetStdHandle(STD_INPUT_HANDLE);
+    handle_out = GetStdHandle(STD_OUTPUT_HANDLE);
+    INPUT_RECORD mouserec; 
+    DWORD res;
+    COORD pos; 
+    COORD size = {20, 25}; 
+    GetConsoleScreenBufferInfo(handle_out, &csbi);
+    SetConsoleScreenBufferSize(handle_out, size);
+    ReadConsoleInput(handle_in, &mouserec, 1, &res);
+    pos = mouserec.Event.MouseEvent.dwMousePosition;
     gotoXY(pos.X, pos.Y);  
     if (mouserec.EventType == MOUSE_EVENT)
         if (mouserec.Event.MouseEvent.dwButtonState == FROM_LEFT_1ST_BUTTON_PRESSED) 
@@ -93,8 +93,8 @@ bool Mousepress(int x1,int x2,int y1,int y2){
 }
 
 void CursorSetup(){
-    HWND hwnd=FindWindow("ConsoleWindowClass",NULL);/*  鎺у埗鍙扮獥鍙ｅ彞鏌?*/
-    hInput = GetStdHandle(STD_INPUT_HANDLE); /*  杈撳叆璁惧鍙ユ焺 */
+    HWND hwnd=FindWindow("ConsoleWindowClass",NULL);
+    hInput = GetStdHandle(STD_INPUT_HANDLE); 
 }
 void ClearScreen(void){
     HANDLE hOut;
