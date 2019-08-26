@@ -263,12 +263,8 @@ void display(char *p,int speed)
     }
 }
 
-void getdata(char username[],char password[])
+int getdata(char username[],char password[])
 {
-    if (strcmp(username,"")==0 && strcmp(password,"")==0){
-        strcpy(password,"test");
-        strcpy(username,"test");
-    }
     if(strcmp(username,"")==0){
         system("cls");
         SetColor(red);
@@ -285,10 +281,10 @@ void getdata(char username[],char password[])
         strcpy(username,"");
         return login();
     }
-    return ;
+    return 1;
 }
 
-void login(){
+int login(){
     HideTheCursor();
     gotoXY(15,2);
     SetColor(white);
@@ -317,7 +313,6 @@ void login(){
     gotoXY(4,22);display("│ └──┘    └──┘   │└───┘│",0);
     gotoXY(4,23);display("└────────────┴─────┘",0);
 
-    gotoXY(4,26);display(" 您是位游客？使用用户名test密码test",1);
 
     while(1){
         HideTheCursor();
@@ -422,10 +417,8 @@ void login(){
                 gotoXY(32,22);printf("└───┘");
             }
             else if(mouse_detect(32,42,17,22)==2){
-                SetColor(white);
-                gotoXY(19,20);printf("注册账号");
-                gotoXY(19,21);printf("请联系开");
-                gotoXY(19,22);printf("发者人员");
+                system("start https://github.com/code004Accepted/GC-Server-dev");
+                exit(0);
             }
             else {
                 SetColor(white);
@@ -445,9 +438,9 @@ void login(){
             }
             else if(mouse_detect(19,23,20,22)==2){
                 SetColor(white);
-                gotoXY(19,20);printf("注册功能");
-                gotoXY(19,21);printf("        ");
-                gotoXY(19,22);printf("暂未开放");
+                gotoXY(19,20);printf("注册账号");
+                gotoXY(19,21);printf("请联系开");
+                gotoXY(19,22);printf("发者人员");
             }
             else {
                 SetColor(white);
