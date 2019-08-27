@@ -1,3 +1,17 @@
+/*
+UPDATE: 此任务已由 @bingogyz 完成，感谢他的贡献！我们正在审核并尝试将此函数融入源代码，请等待稍后告知！
+如果您有比 @bingogyz 更好的实现方法，请提出Pull Request或在Issue中提出思路
+
+代码说明：
+login.cpp文件内容为VIP登录代码，头文件部分请自行补全
+为防止用户信息泄露，我们将用户登录账号与密码的判定使用一个函数 getdata() 代替，请直接使用下面测试文件进行编译
+任务：进行登录窗口美化，请使用WinAPI进行页面重构，并请保证能正确实现登录
+请先Fork本项目，修改代码后再创建一个Pull Request，正式开发组成员将对其进行审核并讨论，也可能会Request Changes
+开发组成员审查完毕后，会@code004Accepted进行复查，code004Accepted将把相关代码直接应用到GC Server的实际代码中进行测试
+如果任务完成成功，将会成为正式开发组成员并会将用户名记录在新版本的关于窗口；如果滥用PR和Issue进行捣乱，将会考虑踢出开发组
+GC Server开发组欢迎您的加入！
+*/
+
 #include<windows.h>
 #include<conio.h>
 #include<cstdio>
